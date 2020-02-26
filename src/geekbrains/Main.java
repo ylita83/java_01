@@ -1,48 +1,22 @@
 package geekbrains;
 
-import java.util.Arrays;
-import java.util.Random;
-import java.util.Scanner;
-
 public class Main {
 
-    public static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
+        Employee[] employees = new Employee[5];
+        employees[0] = new Employee("Фитюлькин Петр Игоревич", "Главный по тарелочкам", "fitya@mail.ru", "88005553535", 45000, 45);
+        employees[1] = new Employee("Жопликов Илья Ильич", "Мамин симпатяга", "handsome@mail.ru", "4242", 30000, 30);
+        employees[2] = new Employee("Морская Наталья Пехотовна", "Водитель", "startuem@mail.ru", "49995553434", 25000, 55);
+        employees[3] = new Employee("Хренова Гадя Петрович", "Уже умеет", "gadya@mail.ru", "89991234567",  35000, 27);
+        employees[4] = new Employee("Хлыщ Жора Вазгенович", "Продавец", "vazgen_is_my_dad@mail.ru", "84959263487", 50000, 32);
 
-//        Написать программу, которая загадывает случайное число от 0 до 9 и пользователю дается 3 попытки угадать это
-//        число. При каждой попытке компьютер должен сообщить, больше ли указанное пользователем число, чем загаданное,
-//                или меньше. После победы или проигрыша выводится запрос – «Повторить игру еще раз?
-//        1 – да / 0 – нет»(1 – повторить, 0 – нет).
-        do {
-            guessGame(10, 3);
-            System.out.println("Повторить игру еще раз?\n 1 – да / 0 – нет");
-
-        } while (sc.nextInt() ==1);
-
-
-    }
-    public static void guessGame(int bound, int count) {
-        Random rand = new Random();
-        int number = rand.nextInt(bound);
-        System.out.println("Угадайте число от 0 до " + (bound - 1) + ". Попыток: " + count);
-        int userNumber;
-        do {
-            userNumber = sc.nextInt();
-            if (userNumber == number) {
-                System.out.println("Вы выиграли! Правильный ответ: " + number);
-                break;
-            } else if (userNumber < number){
-                count--;
-                System.out.println("Cишком мало. Осталось попыток: " + count);
-
-            } else {
-                count--;
-                System.out.println("Cишком много. Осталось попыток: " + count);
-
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i].getAge() > 40){
+                employees[i].printInfo();
+                System.out.println();
             }
-        } while ( count != 0);
-
+        }
     }
 }
 
